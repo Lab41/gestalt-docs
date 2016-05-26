@@ -1,0 +1,99 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Lab41 Gestalt Application Scaffolds\n\n\nWe use Angular.js 1.0 for a desktop build and Ionic 1.0 for a mobile build. Currently the generators are not meant to accomodate a small mobile device only desktop and tablet are supported; although the templates could easily be extended to support a small device.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#lab41-gestalt-application-scaffolds", 
+            "text": "We use Angular.js 1.0 for a desktop build and Ionic 1.0 for a mobile build. Currently the generators are not meant to accomodate a small mobile device only desktop and tablet are supported; although the templates could easily be extended to support a small device.", 
+            "title": "Lab41 Gestalt Application Scaffolds"
+        }, 
+        {
+            "location": "/installation/", 
+            "text": "To generate a modern web app we prefer to use \nYeoman\n. Yeoman is a scaffolding tool for modern web apps. You scaffold an app by running a generator. This documentation is for a set of custom generators built for the \nLab41 Gestalt Challenge\n.\n\n\nFor documentation we like to use \nmkDocs\n.\n\n\nInstall dependencies\n\n\nnpm install -g npm\nnpm install -g yo\n\n/* if you want a python RESTful api in your web app */\neasy_install web.py\n\n/* if you want to launch the documentation locaally */\npip install mkdocs\n\n\n\n\nInstall gestalt generators\n\n\ngit clone https://github.com/Lab41/gestalt.git\ncd gestalt/app-scaffolds/generator-gestalt\n\n/* this makes the generator globally available */\nnpm link", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/installation/#install-dependencies", 
+            "text": "npm install -g npm\nnpm install -g yo\n\n/* if you want a python RESTful api in your web app */\neasy_install web.py\n\n/* if you want to launch the documentation locaally */\npip install mkdocs", 
+            "title": "Install dependencies"
+        }, 
+        {
+            "location": "/installation/#install-gestalt-generators", 
+            "text": "git clone https://github.com/Lab41/gestalt.git\ncd gestalt/app-scaffolds/generator-gestalt\n\n/* this makes the generator globally available */\nnpm link", 
+            "title": "Install gestalt generators"
+        }, 
+        {
+            "location": "/quickstart/", 
+            "text": "First make sure you've installed all dependencies and installed the generators by following the \ninstallation\n.\n\n\nGenerate a web app\n\n\ncd [working directory]\nmkdir [appFolder]\ncd [appFolder]\nyo\n\n\n\n\nPrompts\n\n\nYeoman will walk you through each in the CLI.\n\n\n\n\n\nApplication name\n: Expects a string with no spaces\n\n\nRESTful API\n: Expects a list selection; options are node (javascript) or web.py (python)\n\n\nBuild agent\n: Expects a list selection; options are desktop or tablet\n\n\nTheme\n: Expects a list selection; options are light or dark\n\n\n\n\nBuild complete\n\n\nYou should see a long list of files created with a final success message.\n\n\n\nServe app\n\n\nIf you built a node.js API simply type into the CLI\n\nnode app.js\n\n\nIf you built a web.py API simply type into the CLI\n\npython app.py\n\n\nWhether you chose a node or webpy RESTful API your front-end files will be available at \n127.0.0.1:8000\n and your API will be available at \n127.0.0.1:8000/api/..\n.\n\n\nFor example a default endpoint of \n127.0.0.1:8000/api/data/app\n should resolve with metadata about the application.", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/quickstart/#generate-a-web-app", 
+            "text": "cd [working directory]\nmkdir [appFolder]\ncd [appFolder]\nyo", 
+            "title": "Generate a web app"
+        }, 
+        {
+            "location": "/quickstart/#prompts", 
+            "text": "Yeoman will walk you through each in the CLI.   Application name : Expects a string with no spaces  RESTful API : Expects a list selection; options are node (javascript) or web.py (python)  Build agent : Expects a list selection; options are desktop or tablet  Theme : Expects a list selection; options are light or dark", 
+            "title": "Prompts"
+        }, 
+        {
+            "location": "/quickstart/#build-complete", 
+            "text": "You should see a long list of files created with a final success message.", 
+            "title": "Build complete"
+        }, 
+        {
+            "location": "/quickstart/#serve-app", 
+            "text": "If you built a node.js API simply type into the CLI node app.js  If you built a web.py API simply type into the CLI python app.py  Whether you chose a node or webpy RESTful API your front-end files will be available at  127.0.0.1:8000  and your API will be available at  127.0.0.1:8000/api/.. .  For example a default endpoint of  127.0.0.1:8000/api/data/app  should resolve with metadata about the application.", 
+            "title": "Serve app"
+        }, 
+        {
+            "location": "/webappstructure/", 
+            "text": "Because we use Angular 1.0, of all code written in Angular the controllers ar most closely tied to the layout implementation. The following attempts to correlate the controller to the layout implementation and make it easier for you to follow the application structure.\n\n\nDesktop\n\n\napp-controller\n\n\n\n\nThe \napp-controller\n controls the highest level data like global navigation and application info, i.e. like \"about\".\n\n\npanel-controller\n\n\n\n\nThe \npanel-controller\n controls each panel and is a child of the \napp-controller\n, which is the highest-level of grouping in the app. The stylistic size/position of each panel is determined by CSS. The example here of 2 panels could be 3 or 6, or 1, etc.\n\n\nstory-controller\n\n\n\n\nThe \nstory-controller\n controls each story and is a child of the \npanel-controller\n. A story should be a concise collection of data with a specific scope and content which is TBD.\n\n\nTablet\n\n\napp-controller\n\n\n\n\nThe \napp-controller\n controls the highest level data like global navigation and application info, i.e. like the side menu.\n\n\npanel-controller\n\n\n\n\nThe \npanel-controller\n controls each panel and is a child of the \napp-controller\n, which is the highest-level of grouping in the app. For mobile there will likely only ever be a single panel dedicated to the entire viewport but that doesn't have to be the case.\n\n\nstory-controller\n\n\n\n\nThe \nstory-controller\n controls each story and is a child of the \npanel-controller\n. A story should be a concise collection of data with a specific scope and content which is TBD. The image simply represents several stories in a single panel; however it is possible that a story in a mobile format would take over the entire viewport.", 
+            "title": "Structure"
+        }, 
+        {
+            "location": "/webappstructure/#desktop", 
+            "text": "", 
+            "title": "Desktop"
+        }, 
+        {
+            "location": "/webappstructure/#app-controller", 
+            "text": "The  app-controller  controls the highest level data like global navigation and application info, i.e. like \"about\".", 
+            "title": "app-controller"
+        }, 
+        {
+            "location": "/webappstructure/#panel-controller", 
+            "text": "The  panel-controller  controls each panel and is a child of the  app-controller , which is the highest-level of grouping in the app. The stylistic size/position of each panel is determined by CSS. The example here of 2 panels could be 3 or 6, or 1, etc.", 
+            "title": "panel-controller"
+        }, 
+        {
+            "location": "/webappstructure/#story-controller", 
+            "text": "The  story-controller  controls each story and is a child of the  panel-controller . A story should be a concise collection of data with a specific scope and content which is TBD.", 
+            "title": "story-controller"
+        }, 
+        {
+            "location": "/webappstructure/#tablet", 
+            "text": "", 
+            "title": "Tablet"
+        }, 
+        {
+            "location": "/webappstructure/#app-controller_1", 
+            "text": "The  app-controller  controls the highest level data like global navigation and application info, i.e. like the side menu.", 
+            "title": "app-controller"
+        }, 
+        {
+            "location": "/webappstructure/#panel-controller_1", 
+            "text": "The  panel-controller  controls each panel and is a child of the  app-controller , which is the highest-level of grouping in the app. For mobile there will likely only ever be a single panel dedicated to the entire viewport but that doesn't have to be the case.", 
+            "title": "panel-controller"
+        }, 
+        {
+            "location": "/webappstructure/#story-controller_1", 
+            "text": "The  story-controller  controls each story and is a child of the  panel-controller . A story should be a concise collection of data with a specific scope and content which is TBD. The image simply represents several stories in a single panel; however it is possible that a story in a mobile format would take over the entire viewport.", 
+            "title": "story-controller"
+        }
+    ]
+}
